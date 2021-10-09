@@ -25,7 +25,7 @@ chrome_driver.find_element(By.ID("first-name" ))
 
 
 chrome_driver = webdriver.Chrome("executable_path https://www.saucedemo.com/inventory.html")
-chrome_driver.get("https://www.saucedemo.com/inventory.html")
+chrome_driver.get ("https://www.saucedemo.com/inventory.html")
 chrome_driver.find_element(By.ID("last-name" ))
 
 chrome_driver = webdriver.Chrome("executable_path https://www.saucedemo.com/inventory.html")
