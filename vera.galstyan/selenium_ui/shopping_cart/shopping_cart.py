@@ -1,8 +1,5 @@
 #This test case created by Vera Galstyan
 
-#!/usr/bin/env python 3
-
-#This test case created by Vera Galstyan
 
 #!usr\bin\env python3
 
