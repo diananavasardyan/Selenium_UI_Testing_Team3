@@ -1,13 +1,24 @@
 #This test case was created by Vera Galstyan
 
-#!/usr/bin/env python 3
+#!usr\bin\env python3
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 
-chrome_driver = webdriver.Chrome("executable_path https://www.saucedemo.com/inventory.html")
-chrome_driver.get("https://www.saucedemo.com/inventory.html")
-chrome_driver.find_element(By.ID("user-name" )).click()
-chrome_driver.find_element(By.ID("password" )).click()
-chrome_driver.find_element(By.ID("login-button" )).click()
+chrome_options = Options()
+
+
+browser = webdriver.Chrome(executable_path = r"C:\Users\Admin\Desktop\Webdriver\chromedriver.exe", options = chrome_options)
+browser.get("https://www.saucedemo.com/")
+browser.find_element_by_id("user-name").send_keys("standard_user")
+browser.find_element_by_id("password").send_keys("secret_sauce")
+browser.find_element_by_id("login-button").click()
+actual = browser
+expect = "https://www.saucedemo.com/inventory.html"
+if  actual == expect:
+    print("Test case is passed.")
+else:
+    print("Test case is failed.")
+
+
