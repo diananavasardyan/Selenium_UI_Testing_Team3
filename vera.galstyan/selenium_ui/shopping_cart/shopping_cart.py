@@ -1,33 +1,25 @@
 #This test case created by Vera Galstyan
 
-#!/usr/bin/env python 3
-
-#Shopping
+#!usr\bin\env python3
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-import time
 from selenium.webdriver.common.by import By
 
-chrome_driver = webdriver.Chrome("executable_path https://www.saucedemo.com/inventory.html")
-chrome_driver.get("https://www.saucedemo.com/inventory.html")
-chrome_driver.find_element(By.CLASS_NAME("btn btn_primary btn_small btn_inventory" ))
+chrome_options = Options()
+browser = webdriver.Chrome(executable_path = r"C:\Users\Admin\Desktop\Webdriver\chromedriver.exe", options = chrome_options)
+browser.get("https://www.saucedemo.com/")
+username_form = username_form = browser.find_element_by_id("user-name")
+login = browser.find_element_by_xpath('//*[@id="login_credentials"]').text.split()[5]
+username_form.send_keys(login)
+password_form = browser.find_element_by_id("password")
+password = browser.find_element_by_xpath('//*[@class="login_password"]').text.split()[4]
+password_form.send_keys(password)
+login_button = browser.find_element_by_id("login-button").click()
+actual = browser.find_element_by_id("add-to-cart-sauce-labs-backpack").send_keys("ADD TO CART")
+expect = "https://www.saucedemo.com/inventory.html"
 
-#Continue shopping
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import time
-from selenium.webdriver.common.by import By
-
-chrome_driver = webdriver.Chrome("executable_path https://www.saucedemo.com/inventory.html")
-chrome_driver.get("https://www.saucedemo.com/inventory.html")
-chrome_driver.find_element(By.ID("first-name" ))
-
-
-chrome_driver = webdriver.Chrome("executable_path https://www.saucedemo.com/inventory.html")
-chrome_driver.get("https://www.saucedemo.com/inventory.html")
-chrome_driver.find_element(By.ID("last-name" ))
-
-chrome_driver = webdriver.Chrome("executable_path https://www.saucedemo.com/inventory.html")
-chrome_driver.get("https://www.saucedemo.com/inventory.html")
-chrome_driver.find_element(By.ID("ipostal-code" ))
+if  actual == expect:
+    print("Test case is passed.")
+else:
+    print("Test case is failed.")
